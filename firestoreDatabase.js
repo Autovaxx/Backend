@@ -12,6 +12,8 @@ const db = admin.firestore();
 // Storing collection to variable
 let sampleData = db.collection('users')
 
+
+// Fetching entire user collection from DB
 const returnUserData = () => { 
     
     const userData = []
