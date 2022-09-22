@@ -13,7 +13,7 @@ dataToScript.dataToScript()
 // Sample root api for port 8080
 app.get('/', (req, res) => {
 
-    res.send("hello")
+    res.send("API for python script goes here :)")
 })
 
 // Starting the server
