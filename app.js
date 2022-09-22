@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8080;
+const port = 8080;
 const dbFunctions = require('./firestoreDatabase')
 const dataToScript = require('./dataToScript')
 
@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
 })
 
 // Starting the server
-app.listen(PORT, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("Server is running");
   });
