@@ -28,7 +28,7 @@ app.get('/pyscript',  (req, res) => {
     pythonOutput.on('exit', (code) => {
         console.log(`EXIT CODE: ${code}`)
 
-        res.send(dataFromPython)
+        res.json(dataFromPython)
     } )
 })
 
