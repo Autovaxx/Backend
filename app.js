@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const port = 8080;
 const dbFunctions = require('./firestoreDatabase')
-const pythonDataTransfer = require('./pythonDataTransfer')
 const {spawn} = require('child_process');
+const { send } = require('process');
 
 // Need to async/await for this to work properly since it takes time to execute. 
 const x = dbFunctions.returnUserData()
@@ -33,7 +33,7 @@ app.get('/pyscript',  (req, res) => {
 
 app.get("/", (req, res) => {
 
-    res.send("/pyscript is endpoint")
+    res.send("/pyscript is endpoint for script")
 })
 
 // Starting the server
