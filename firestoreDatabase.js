@@ -14,17 +14,19 @@ let sampleData = db.collection('users')
 
 
 // Fetching entire user collection from DB
-const returnUserData = () => { 
+const returnUserData = async () => { 
     
     const userData = []
-    
     // Logging data to console and storing it in an array
-    sampleData.get().then((querySnapshot) =>[
+    await sampleData.get().then((querySnapshot) =>[
         querySnapshot.forEach(document => {
             userData.push(document.data())
-            console.log(userData)
+    
         })
+        
     ])
+
+    console.log(userData)
     
     return userData
 }

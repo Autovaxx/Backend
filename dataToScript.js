@@ -6,7 +6,9 @@ let x = '{ "employees" : [' +
 '{ "firstName":"Anna" , "lastName":"Smith" },' +
 '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
 
-const dataToScript = () => {
+
+const dataToScript = async () => {
+    console.log("HIIIII")
     // Setting options for python shell
     let options = {
         mode: 'json',
@@ -14,13 +16,23 @@ const dataToScript = () => {
     }
 
     // Executing python script 
-    PythonShell.run('app.py', options, (err, results) => {
+    return new Promise((resolve, reject) => {
 
-        if(err){
-            console.log(err)
+        try{
+            PythonShell.run('app.py', options, (err, results) => {
+                   
+                if(err){
+                    console.log(err)
+                }
+                console.log(results)
+                console.log("Python script finished")
+                resolve()
+            })
         }
-        console.log(results)
-        console.log("Python script finished")
+        catch{
+            console.log("Could not get data from script")
+            reject()
+        }
     })
 }
 
