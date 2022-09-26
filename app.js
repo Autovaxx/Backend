@@ -4,12 +4,13 @@ const port = 8080;
 const dbFunctions = require('./firestoreDatabase')
 const pythonDataTransfer = require('./pythonDataTransfer')
 const {spawn} = require('child_process');
+const { send } = require('process');
 
 // Need to async/await for this to work properly since it takes time to execute. 
 const x = dbFunctions.returnUserData()
 
 // Sample root api for port 8080
-app.get('/',  (req, res) => {
+app.get('/pyscript',  (req, res) => {
 
     const pythonOutput = spawn('python', ['app.py'])
 
@@ -29,6 +30,11 @@ app.get('/',  (req, res) => {
 
         res.send(dataFromPython)
     } )
+})
+
+app.get("/", (req, res) => {
+
+    res.send("/pyscript is endpoint")
 })
 
 // Starting the server
