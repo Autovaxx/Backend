@@ -4,7 +4,6 @@ const port = 8080;
 const dbFunctions = require('./firestoreDatabase')
 const pythonDataTransfer = require('./pythonDataTransfer')
 const {spawn} = require('child_process');
-const { send } = require('process');
 
 // Need to async/await for this to work properly since it takes time to execute. 
 const x = dbFunctions.returnUserData()
