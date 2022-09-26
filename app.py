@@ -59,6 +59,6 @@ driver.get("https://www.google.com/search?q=mississauga+weather&rlz=1C1UEAD_enCA
 details_obj_json = json.dumps(driver.page_source)
 
 # Printing object so its in the I/O stream for node to fetch
-print(details_obj_json[10])
+print(f'Data: ${details_obj_json[10]}')
 
 driver.close()
