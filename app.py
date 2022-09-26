@@ -24,21 +24,21 @@ chrome_options.add_argument('--window-size=1920x1480')
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 # Connecting to this page
-driver.get("https://www.google.com")
+driver.get("https://www.google.com/search?q=mississauga+weather&rlz=1C1UEAD_enCA995CA995&oq=miss&aqs=chrome.0.69i59j46i433i512j69i57j69i59j69i61j69i65j69i61j69i60.520j0j7&sourceid=chrome&ie=UTF-8")
 
-# Script Variables
-city = 'Mississauga weather'
+# # Script Variables
+# city = 'Mississauga weather'
 delay = 10
 location_x = '//div[@id="wob_loc"]'
 date_time_x = '//div[@id="wob_dts"]'
 info_x = '//div[@class="Ab33Nc"]'
-input_x = '//input[@class="gLFyf gsfi"]'
+# input_x = '//input[@class="gLFyf gsfi"]'
 
-# Entering city name and hitting enter key 
-WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, input_x))).send_keys(city)
-WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, input_x))).send_keys(u'\ue007') 
+# # Entering city name and hitting enter key 
+# WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, input_x))).send_keys(city)
+# WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, input_x))).send_keys(u'\ue007') 
 
-# Grabbing weather data 
+# # Grabbing weather data 
 location = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, location_x))).text
 date_time = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, date_time_x))).text
 weather_details = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, info_x))).text
