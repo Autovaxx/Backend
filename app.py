@@ -9,19 +9,35 @@ import os
 # from selenium.webdriver.chrome.service import Service
 # serv = Service("chromedriver.exe")
 
-# # Setting chrome options
-# chrome_opts = webdriver.ChromeOptions()
-# chrome_opts.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-# chrome_opts.add_argument("--headless")
-# chrome_opts.add_argument('window-size=1920x1080')
-# chrome_opts.add_argument("--disable-dev-shm-usage")
-# chrome_opts.add_argument("--no-sandbox")
+# Setting chrome options
+chrome_opts = webdriver.ChromeOptions()
+chrome_opts.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_opts.add_argument("--headless")
+chrome_opts.add_argument('window-size=1920x1080')
+chrome_opts.add_argument("--disable-dev-shm-usage")
+chrome_opts.add_argument("--no-sandbox")
 
-# driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_opts)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_opts)
+
 # # driver = webdriver.Chrome(service=serv, options=chrome_options)
 
 # # # Connecting to this page
 # driver.get("https://www.google.com/search?q=mississauga+weather&rlz=1C1UEAD_enCA995CA995&oq=miss&aqs=chrome.0.69i59j46i433i512j69i57j69i59j69i61j69i65j69i61j69i60.520j0j7&sourceid=chrome&ie=UTF-8")
+
+
+
+# Closing selenim instance after data is fetched/process is closed
+driver.close()
+
+# Converting object to json
+details_obj_json = json.dumps(driver.page_source)
+
+
+# Printing object so its in the I/O stream for node to fetch
+print(f'Data: ${details_obj_json[10]}')
+
+
+#### USING THIS LATER WHEN CHROMEDRIVER WORKS
 
 # # # Script Variables
 # # city = 'Mississauga weather'
@@ -51,13 +67,3 @@ import os
 #     "date_time": "BYE",
 #     "weather": "YO"
 # }]
-# Closing selenim instance after data is fetched/process is closed
-# driver.close()
-
-# Converting object to json
-# details_obj_json = json.dumps(driver.page_source)
-x = 'abc'
-
-# Printing object so its in the I/O stream for node to fetch
-# print(f'Data: ${details_obj_json[10]}')
-print(f'Data: ${x}')
