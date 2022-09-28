@@ -24,19 +24,17 @@ driver = webdriver.Chrome(service=serv, options=chrome_opts)
 # # # Connecting to this page
 driver.get("https://www.google.com/search?q=mississauga+weather&rlz=1C1UEAD_enCA995CA995&oq=miss&aqs=chrome.0.69i59j46i433i512j69i57j69i59j69i61j69i65j69i61j69i60.520j0j7&sourceid=chrome&ie=UTF-8")
 
-
-
-#sa
 # Closing selenim instance after data is fetched/process is closed
-driver.close()
+# driver.close()
 
 # Converting object to json
 details_obj_json = json.dumps(driver.page_source)
 
-
 # Printing object so its in the I/O stream for node to fetch
 print(f'Data: ${details_obj_json[10]}')
 
+# Closing the browser
+driver.close()
 
 #### USING THIS LATER WHEN CHROMEDRIVER WORKS
 
