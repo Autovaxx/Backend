@@ -26,6 +26,7 @@ driver = webdriver.Chrome(service=serv, options=chrome_opts)
 
 
 
+#sa
 # Closing selenim instance after data is fetched/process is closed
 driver.close()
 
