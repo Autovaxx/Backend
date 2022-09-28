@@ -21,7 +21,7 @@ driver = webdriver.Chrome(service=serv, options=chrome_opts)
 # # driver = webdriver.Chrome(service=serv, options=chrome_options)
 
 # # # Connecting to this page
-driver.get("https://www.google.com/search?q=mississauga+weather&rlz=1C1UEAD_enCA995CA995&oq=miss&aqs=chrome.0.69i59j46i433i512j69i57j69i59j69i61j69i65j69i61j69i60.520j0j7&sourceid=chrome&ie=UTF-8")
+driver.get("https://www.google.com")
 
 # # Script Variables
 city = 'Mississauga weather'
