@@ -26,7 +26,10 @@ app.get('/pyscript',  (req, res) => {
     // Once the python script is finished executing, closes I/O streams and sends data from script to server endpoint
     pythonOutput.on('exit', (code) => {
         console.log(`EXIT CODE: ${code}`)
-
+        
+        pythonOutput.stderr.on('data', data => {
+            console.log(`ERROR: ${data}`)
+        })
         res.send(dataFromPython)
     } )
 })
