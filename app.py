@@ -1,13 +1,13 @@
 import json
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 import os
 
 # from selenium.webdriver.common.by import By
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
 
-# from selenium.webdriver.chrome.service import Service
-# serv = Service("chromedriver.exe")
+serv = Service(os.environ.get("CHROMEDRIVER_PATH"))
 
 # Setting chrome options
 chrome_opts = webdriver.ChromeOptions()
@@ -17,7 +17,7 @@ chrome_opts.add_argument('window-size=1920x1080')
 chrome_opts.add_argument("--disable-dev-shm-usage")
 chrome_opts.add_argument("--no-sandbox")
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_opts)
+driver = webdriver.Chrome(service=serv, options=chrome_opts)
 
 # # driver = webdriver.Chrome(service=serv, options=chrome_options)
 
