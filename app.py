@@ -1,7 +1,7 @@
 import json
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -18,6 +18,7 @@ chrome_opts.add_argument("--no-sandbox")
 
 driver = webdriver.Chrome(service=serv, options=chrome_opts)
 
+# <-- Local config -->
 # # driver = webdriver.Chrome(service=serv, options=chrome_options)
 
 # # # Connecting to this page
@@ -47,12 +48,11 @@ details_obj = [{
     "weather": weather_details
 }]
 
-
 # Converting object to json
 details_obj_json = json.dumps(details_obj)
 
 # Printing object so its in the I/O stream for node to fetch
-print(f'Data: ${details_obj_json}')
+print(f'Data: {details_obj_json}')
 
 # Closing the browser
 driver.close()
