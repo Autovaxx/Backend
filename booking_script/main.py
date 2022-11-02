@@ -25,9 +25,10 @@ driver.get(website)
 # Running shoppers script
 try:
     shopper_script.book_appointment(driver)
-except Exception as e: 
-    pass
-else: 
-    pass
+except:
+    driver.close()
+    
+
+
 
 
